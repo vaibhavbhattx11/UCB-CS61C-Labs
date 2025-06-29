@@ -68,11 +68,11 @@ map:
     mv a1, s1
 
     # recurse
-    lw ra, 0(sp)
-    lw s0, 4(sp)
-    lw s1, 8(sp)
-    addi sp, sp, 12
-    j map
+    #lw ra, 0(sp)
+    #lw s0, 4(sp)
+    #lw s1, 8(sp)
+    #addi sp, sp, 12
+    jal map
 
 done:
     # Epilogue: Restore register values and free space from the stack
