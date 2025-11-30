@@ -1,24 +1,25 @@
 Scenario 1
-    1.
-    2.
-    3.
+    1. step-size = cache-size
+    2. 0.0
+    3. step-size = 1, array-size=32
 
 Scenario 2
-    1.
-    2.
-    3.
+    1. 2
+    2. MHHH
+    3. 1.0
 
 Scenario 3
-    1.
-    2.
-    3.
-    4.
-    5.
+    1. 0.5,0.0,0.5
+    2. 32, 16
+    3. 16
+    4. repcount
+    5. =,=,+,=
 
 --- lines below are ignored by the AG ---
 
-Checkoff Question 1:
-Checkoff Question 2:
-Checkoff Question 3:
-Checkoff Question 4:
-Checkoff Question 5:
+Checkoff Question 1: Because we access the same cache block, which needs to be replaced each time we loop the array, so it will always miss irrespective of repcount
+Checkoff Question 2: Step size and array size
+Checkoff Question 3: Each block can array 4 ints, 1st and 3rd are read and written to in order. There is a miss when the first one is read, rest are all hits.
+Checkoff Question 4: Upon one full iteration, the whole array gets fully stored in the cache. So there will be zero cache misses for all iterations after the first, hence hit rate tends to 1.
+Checkoff Question 5: We can divide the array into blocks of cache size 256, and apply the repcount functions for over those blocks in order. This gives identical hit rates to the case of scenario 2 per block, and hence for the whole array.
+Checkoff Question 6: The values replaced in our L1 cache during first iteration will be replaced into the L2 cache, so next iterations will have hits in the L2 caches.
