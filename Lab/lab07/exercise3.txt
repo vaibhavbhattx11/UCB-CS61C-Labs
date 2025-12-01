@@ -1,20 +1,48 @@
 --- not autograded ---
 
 Part 1
-    blocksize = 20, n = 100: 
-    blocksize = 20, n = 1000: 
-    blocksize = 20, n = 2000: 
-    blocksize = 20, n = 5000: 
-    blocksize = 20, n = 10000: 
 
-    Checkoff Question 1:
-    Checkoff Question 2:
+Output:
+    Part One
+    n = 100, blocksize = 20
+    Testing naive transpose: 0.006 milliseconds
+    Testing transpose with blocking: 0.004 milliseconds
+    n = 1000, blocksize = 20
+    Testing naive transpose: 1.459 milliseconds
+    Testing transpose with blocking: 1.571 milliseconds
+    n = 2000, blocksize = 20
+    Testing naive transpose: 14.13 milliseconds
+    Testing transpose with blocking: 8.969 milliseconds
+    n = 5000, blocksize = 20
+    Testing naive transpose: 249.767 milliseconds
+    Testing transpose with blocking: 54.538 milliseconds
+    n = 10000, blocksize = 20
+    Testing naive transpose: 1082.35 milliseconds
+    Testing transpose with blocking: 219.85 milliseconds
+
+    Checkoff Question 1: Noticable difference from n>=2000
+    Checkoff Question 2: For small values of n, the cache blocks loaded in my L1 at the first compulsory miss wont be replaced as my cache would be big enough to retain all cache blocks.
+    For large values of n, these blocks will get LRU replaced and will have more cache misses.
 
 Part 2
-    blocksize = 50, n = 10000:
-    blocksize = 100, n = 10000:
-    blocksize = 500, n = 10000:
-    blocksize = 1000, n = 10000:
-    blocksize = 5000, n = 10000:
 
-    Checkoff Question 3:
+Output:
+    Part Two
+    n = 10000, blocksize = 50
+    Testing naive transpose: 1154.77 milliseconds
+    Testing transpose with blocking: 157.225 milliseconds
+    n = 10000, blocksize = 100
+    Testing naive transpose: 1082.66 milliseconds
+    Testing transpose with blocking: 135.048 milliseconds
+    n = 10000, blocksize = 500
+    Testing naive transpose: 1156.68 milliseconds
+    Testing transpose with blocking: 117.042 milliseconds
+    n = 10000, blocksize = 1000
+    Testing naive transpose: 1092.32 milliseconds
+    Testing transpose with blocking: 182.491 milliseconds
+    n = 10000, blocksize = 5000
+    Testing naive transpose: 1094.51 milliseconds
+    Testing transpose with blocking: 1085.5 milliseconds
+
+    Checkoff Question 3: 
+    As blocksize increases initially, there is a speedup due to blocks being loaded fully, stable for a while followed by some decline due to L1 being really full before one block is completed.

@@ -1,8 +1,10 @@
-1.
-2.
+1. jki, kji
+2. ikj, kij
 
 --- lines below are ignored by the AG ---
-
-Checkoff Question 1:
-Checkoff Question 2:
-Checkoff Question 3:
+stride n count: i=0, j=2, k=1
+innermost loop gets used n^2 times, middle one n times, outer one once. 
+cost of innermost is n^2 (n~=1000, so should dominate time)
+Checkoff Question 1: innermost loop has i=0, no stride cost and minimal cache misses.
+Checkoff Question 2: innermost loop has j=0, stride n on memory of both B and C at every loop traversal. 
+Checkoff Question 3: large strides on innermost loop elements = more cache misses on memory = more time taken. 
